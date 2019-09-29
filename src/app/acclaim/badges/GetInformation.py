@@ -36,10 +36,3 @@ class GetInformation:
         except IndexError:
             return 0
         return badges
-
-
-if __name__ == "__main__":
-    info = GetInformation('https://www.youracclaim.com/organizations/ibm/badges')
-    badges = info.badges
-    print('badges: ', badges)
-    pass

@@ -47,6 +47,5 @@ class GetInformationTestCase(unittest.TestCase):
         self.assertEqual(expected_badges, badges)
 
 
-
 if __name__ == '__main__':
     unittest.main()
