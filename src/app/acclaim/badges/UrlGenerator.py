@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-Class to get the badges from the Acclaim web site.
+Class to generate the URL badge links from the Acclaim web site.
 """
 
 
-class AcclaimBadges:
+class UrlGenerator:
     """"
-    Get the badges from the Acclaim web site.
+    Generate the URL badge links from the Acclaim web site.
     """
 
     def __init__(self, company: str, start_at: int = 1, end_at: int = None) -> None:

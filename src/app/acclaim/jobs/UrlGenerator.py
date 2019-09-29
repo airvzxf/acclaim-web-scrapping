@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-Class to get the jobs from the Acclaim web site.
+Class to generate the URL job links from the Acclaim web site.
 """
 
 
-class AcclaimJobs:
+class UrlGenerator:
     """"
-    Get the jobs from the Acclaim web site.
+    Generate the URL job links from the Acclaim web site.
     """
 
     def __init__(self,

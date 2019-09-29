@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-Unit Test for the AcclaimJobs class.
+Unit Test for the UrlGenerator class.
 """
 import unittest
 
-from app.AcclaimJobs import AcclaimJobs
+from app.acclaim.jobs.UrlGenerator import UrlGenerator
 
 
-class AcclaimJobsTestCase(unittest.TestCase):
+class UrlGeneratorTestCase(unittest.TestCase):
     def test_check_the_url(self):
         expected_url = 'https://www.youracclaim.com/api/v1/jobs/' + \
                        'TonyStark/' + \
@@ -17,8 +17,9 @@ class AcclaimJobsTestCase(unittest.TestCase):
                        'salary_ranges[id]=9&' + \
                        'salary_ranges[name]=&' + \
                        'page={page}&'
-        acclaim_jobs = AcclaimJobs('TonyStark', 'NotLooser', 'MX', 9)
-        url = acclaim_jobs.url
+
+        url_generator = UrlGenerator('TonyStark', 'NotLooser', 'MX', 9)
+        url = url_generator.url
         self.assertEqual(expected_url, url)
 
     def test_check_the_url_and_set_the_page_number(self):
@@ -29,8 +30,9 @@ class AcclaimJobsTestCase(unittest.TestCase):
                        'salary_ranges[id]=9&' + \
                        'salary_ranges[name]=&' + \
                        'page={page}&'
-        acclaim_jobs = AcclaimJobs('TonyStark', 'NotLooser', 'MX', 9, 55, 80)
-        url = acclaim_jobs.url
+
+        url_generator = UrlGenerator('TonyStark', 'NotLooser', 'MX', 9, 55, 80)
+        url = url_generator.url
         self.assertEqual(expected_url, url)
 
     def test_get_the_urls(self):
@@ -38,8 +40,9 @@ class AcclaimJobsTestCase(unittest.TestCase):
             'https://www.youracclaim.com/api/v1/jobs/Z/j-l?country=AB&salary_ranges[id]=101&salary_ranges[name]=&' +
             'page=1&',
         ]
-        acclaim_jobs = AcclaimJobs('Z', 'j-l', 'AB', 101)
-        urls = acclaim_jobs.get_urls
+
+        url_generator = UrlGenerator('Z', 'j-l', 'AB', 101)
+        urls = url_generator.get_urls
         self.assertEqual(expected_url, urls)
 
     def test_get_the_urls_given_a_limit(self):
@@ -53,8 +56,9 @@ class AcclaimJobsTestCase(unittest.TestCase):
             'https://www.youracclaim.com/api/v1/jobs/Z/j-l?country=AB&salary_ranges[id]=101&salary_ranges[name]=&' +
             'page=42&',
         ]
-        acclaim_jobs = AcclaimJobs('Z', 'j-l', 'AB', 101, 39, 42)
-        urls = acclaim_jobs.get_urls
+
+        url_generator = UrlGenerator('Z', 'j-l', 'AB', 101, 39, 42)
+        urls = url_generator.get_urls
         self.assertEqual(expected_url, urls)
 
 
