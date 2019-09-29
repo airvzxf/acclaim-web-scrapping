@@ -4,10 +4,9 @@
 Unit Test for the HttpRequest class.
 """
 from unittest import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 from app.HttpRequest import HttpRequest
-from test.mock_system.MockUrllib3 import MockUrllib3
 
 
 class HttpRequestTestCase(TestCase):
@@ -40,8 +39,9 @@ class HttpRequestTestCase(TestCase):
 
     @patch('urllib3.PoolManager.request')
     def test_request_url_and_get_the_response(self, urllib3_patch):
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.status = self.status_1
+        mock_urllib3.data = None
         urllib3_patch.return_value = mock_urllib3
 
         http_request = HttpRequest(url=self.url_1)
@@ -50,8 +50,9 @@ class HttpRequestTestCase(TestCase):
 
     @patch('urllib3.PoolManager.request')
     def test_request_another_url_and_get_the_response(self, urllib3_patch):
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.status = self.status_2
+        mock_urllib3.data = None
         urllib3_patch.return_value = mock_urllib3
 
         http_request = HttpRequest(url=self.url_2)
@@ -60,7 +61,7 @@ class HttpRequestTestCase(TestCase):
 
     @patch('urllib3.PoolManager.request')
     def test_get_response_data(self, urllib3_patch):
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.data = self.data_1
         urllib3_patch.return_value = mock_urllib3
 
@@ -74,7 +75,7 @@ class HttpRequestTestCase(TestCase):
         from json import loads
         expected_data_json = loads('{"nothing":[{"no":true}, {"thing":false}]}')
 
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.data = self.data_json_2
         urllib3_patch.return_value = mock_urllib3
 
@@ -87,7 +88,7 @@ class HttpRequestTestCase(TestCase):
     def test_get_response_data_with_invalid_json_object(self, urllib3_patch):
         expected_data_json = self.data_json_empty
 
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.data = self.data_1
         urllib3_patch.return_value = mock_urllib3
 
@@ -98,7 +99,7 @@ class HttpRequestTestCase(TestCase):
 
     @patch('urllib3.PoolManager.request')
     def test_get_response_invalid_data_check_the_json_object(self, urllib3_patch):
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.data = None
         urllib3_patch.return_value = mock_urllib3
 
@@ -112,7 +113,7 @@ class HttpRequestTestCase(TestCase):
         from json import loads
         expected_data_json = loads('{"data":[{"hi":"Man"}, {"orko":null}]}')['data']
 
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.data = self.data_json_1
         urllib3_patch.return_value = mock_urllib3
 
@@ -123,7 +124,7 @@ class HttpRequestTestCase(TestCase):
 
     @patch('urllib3.PoolManager.request')
     def test_get_response_json_for_data_object_when_not_exists(self, urllib3_patch):
-        mock_urllib3 = MockUrllib3()
+        mock_urllib3 = Mock()
         mock_urllib3.data = self.data_json_2
         urllib3_patch.return_value = mock_urllib3
 
