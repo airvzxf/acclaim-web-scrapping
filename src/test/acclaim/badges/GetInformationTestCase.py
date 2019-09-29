@@ -1,11 +1,12 @@
 import unittest
+from unittest import TestCase
 from unittest.mock import patch
 
 from app.acclaim.badges.GetInformation import GetInformation
 from test.mock_system.MockUrllib3 import MockUrllib3
 
 
-class GetInformationTestCase(unittest.TestCase):
+class GetInformationTestCase(TestCase):
     @patch('urllib3.PoolManager.request')
     def test_get_number_of_badges(self, urllib3_patch):
         expected_badges = 1952

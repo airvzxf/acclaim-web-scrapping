@@ -4,11 +4,12 @@
 Unit Test for the TextExtraction class.
 """
 import unittest
+from unittest import TestCase
 
 from app.TextExtraction import TextExtraction
 
 
-class TextExtractionTestCase(unittest.TestCase):
+class TextExtractionTestCase(TestCase):
     def test_extract_a_text(self):
         text = 'Hello Bing, I need Bing for the Bang.'
         regex = r'(Bing)'

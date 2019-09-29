@@ -4,11 +4,12 @@
 Unit Test for the UrlGenerator class.
 """
 import unittest
+from unittest import TestCase
 
 from app.acclaim.jobs.UrlGenerator import UrlGenerator
 
 
-class UrlGeneratorTestCase(unittest.TestCase):
+class UrlGeneratorTestCase(TestCase):
     def test_check_the_url(self):
         expected_url = 'https://www.youracclaim.com/api/v1/jobs/' + \
                        'TonyStark/' + \

@@ -4,13 +4,14 @@
 Unit Test for the HttpRequest class.
 """
 import unittest
+from unittest import TestCase
 from unittest.mock import patch
 
 from app.HttpRequest import HttpRequest
 from test.mock_system.MockUrllib3 import MockUrllib3
 
 
-class HttpRequestTestCase(unittest.TestCase):
+class HttpRequestTestCase(TestCase):
     def setUp(self) -> None:
         """
         Set up the Test Case.
