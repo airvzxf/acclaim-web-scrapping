@@ -1,4 +1,8 @@
-import unittest
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+Unit Test for the GetInformation class.
+"""
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -46,7 +50,3 @@ class GetInformationTestCase(TestCase):
         get_information = GetInformation('Any url')
         badges = get_information.badges
         self.assertEqual(expected_badges, badges)
-
-
-if __name__ == '__main__':
-    unittest.main()

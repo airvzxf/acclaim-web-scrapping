@@ -3,7 +3,6 @@
 """
 Unit Test for the UrlGenerator class.
 """
-import unittest
 from unittest import TestCase
 
 from app.acclaim.badges.UrlGenerator import UrlGenerator
@@ -43,7 +42,3 @@ class UrlGeneratorTestCase(TestCase):
         url_generator = UrlGenerator('Z', start_at=5, end_at=7)
         urls = url_generator.get_urls
         self.assertEqual(expected_url, urls)
-
-
-if __name__ == '__main__':
-    unittest.main()

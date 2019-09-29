@@ -3,7 +3,6 @@
 """
 Unit Test for the HttpRequest class.
 """
-import unittest
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -132,7 +131,3 @@ class HttpRequestTestCase(TestCase):
         http_request.request()
         data_json = http_request.get_data_json_by('data')
         self.assertEqual(self.data_json_empty, data_json)
-
-
-if __name__ == '__main__':
-    unittest.main()

@@ -3,7 +3,6 @@
 """
 Unit Test for the TextExtraction class.
 """
-import unittest
 from unittest import TestCase
 
 from app.TextExtraction import TextExtraction
@@ -27,7 +26,3 @@ class TextExtractionTestCase(TestCase):
         text_extraction = TextExtraction(text, regex)
         matches = text_extraction.matches
         self.assertEqual(expected_matches, matches)
-
-
-if __name__ == '__main__':
-    unittest.main()
