@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-Unit Test for the GetAll class.
+Unit Test for the GetAllUrls class.
 """
 import unittest
 from unittest.mock import patch, call
 
-from app.acclaim.badges.GetAll import GetAll
+from app.acclaim.badges.GetAllUrls import GetAllUrls
 
 
-class GetAllTestCase(unittest.TestCase):
+class GetAllUrlsTestCase(unittest.TestCase):
     def setUp(self) -> None:
         """
         Set up the Test Case.
@@ -36,20 +36,20 @@ class GetAllTestCase(unittest.TestCase):
     def test_get_the_constant_badges_per_page(self):
         expected_badges_per_page = 48
 
-        badges_per_page = GetAll.badges_per_page
+        badges_per_page = GetAllUrls.badges_per_page
         self.assertEqual(expected_badges_per_page, badges_per_page)
 
     def test_call_the_class_url_generator(self, ):
         self.MockUrlGenerator.get_urls = ['']
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         get_all.execute()
         self.MockUrlGenerator.assert_called_with(self.company)
 
     def test_call_the_class_url_generator_it_returns_empty_urls(self):
         self.MockUrlGenerator.return_value.get_urls = []
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         executed = get_all.execute()
         self.assertEqual(False, executed)
         self.MockUrlGenerator.assert_called_with(self.company)
@@ -59,7 +59,7 @@ class GetAllTestCase(unittest.TestCase):
 
         self.MockUrlGenerator.return_value.get_urls = [expected_url]
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         get_all.execute()
         self.MockGetInformation.assert_called_with(expected_url)
 
@@ -69,7 +69,7 @@ class GetAllTestCase(unittest.TestCase):
         self.MockUrlGenerator.return_value.get_urls = ['']
         self.MockGetInformation.return_value.badges = expected_badges
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         get_all.execute()
         badges = get_all.get_badges
         self.assertEqual(expected_badges, badges)
@@ -81,7 +81,7 @@ class GetAllTestCase(unittest.TestCase):
         self.MockUrlGenerator.return_value.get_urls = ['']
         self.MockGetInformation.return_value.badges = badges
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         get_all.execute()
         pages = get_all.get_pages
         self.assertEqual(expected_pages, pages)
@@ -93,7 +93,7 @@ class GetAllTestCase(unittest.TestCase):
         self.MockUrlGenerator.return_value.get_urls = ['']
         self.MockGetInformation.return_value.badges = badges
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         get_all.execute()
         pages = get_all.get_pages
         self.assertEqual(expected_pages, pages)
@@ -115,7 +115,7 @@ class GetAllTestCase(unittest.TestCase):
         self.MockUrlGenerator.return_value.get_urls = expected_urls
         self.MockGetInformation.return_value.badges = badges
 
-        get_all = GetAll(self.company)
+        get_all = GetAllUrls(self.company)
         get_all.execute()
         urls = get_all.get_urls
         self.assertEqual(expected_urls, urls)

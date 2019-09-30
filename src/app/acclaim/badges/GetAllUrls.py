@@ -5,7 +5,7 @@ Class to get all the badges from a specific company by page number.
 """
 
 
-class GetAll:
+class GetAllUrls:
     """"
     Get all the badges from a specific company by page number.
     """
