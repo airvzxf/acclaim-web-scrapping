@@ -10,8 +10,6 @@ from app.acclaim.badges.GetAll import GetAll
 
 
 class GetAllTestCase(unittest.TestCase):
-    # @patch('app.acclaim.badges.GetInformation.GetInformation')
-    # @patch('app.acclaim.badges.UrlGenerator.UrlGenerator')
     def setUp(self) -> None:
         """
         Set up the Test Case.
