@@ -6,7 +6,7 @@ Unit Test for the HttpRequest class.
 from unittest import TestCase
 from unittest.mock import patch
 
-from app.HttpRequest import HttpRequest
+from app.tool.HttpRequest import HttpRequest
 
 
 class HttpRequestTestCase(TestCase):

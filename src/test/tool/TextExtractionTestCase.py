@@ -5,7 +5,7 @@ Unit Test for the TextExtraction class.
 """
 from unittest import TestCase
 
-from app.TextExtraction import TextExtraction
+from app.tool.TextExtraction import TextExtraction
 
 
 class TextExtractionTestCase(TestCase):
