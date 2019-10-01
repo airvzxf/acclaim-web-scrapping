@@ -9,8 +9,7 @@ class GetAllUrls:
     """"
     Get all the badges from a specific company by page number.
     """
-    # TODO: Uppercase the constant badges per page.
-    badges_per_page = 48
+    _BADGES_PER_PAGE = 48
     company = None
     badges = 0
     urls = []
@@ -60,7 +59,7 @@ class GetAllUrls:
         :return: Max number of pages.
         """
         from math import ceil
-        return ceil(self.badges / self.badges_per_page)
+        return ceil(self.badges / self._BADGES_PER_PAGE)
 
     @property
     def get_urls(self) -> list:

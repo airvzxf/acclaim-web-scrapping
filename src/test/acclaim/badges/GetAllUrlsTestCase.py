@@ -36,7 +36,7 @@ class GetAllUrlsTestCase(unittest.TestCase):
     def test_get_the_constant_badges_per_page(self):
         expected_badges_per_page = 48
 
-        badges_per_page = GetAllUrls.badges_per_page
+        badges_per_page = GetAllUrls._BADGES_PER_PAGE
         self.assertEqual(expected_badges_per_page, badges_per_page)
 
     def test_call_the_class_url_generator(self):
