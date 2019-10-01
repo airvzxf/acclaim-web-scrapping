@@ -9,6 +9,8 @@ class TextExtraction:
     """
     Extract an specific text from the other text.
     """
+    text = None
+    regex = None
 
     def __init__(self, text: str, regex: str) -> None:
         """

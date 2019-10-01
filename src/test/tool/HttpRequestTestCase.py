@@ -16,7 +16,7 @@ class HttpRequestTestCase(TestCase):
         :rtype: None
         :return: None
         """
-        self.patch_urllib3 = patch('urllib3.PoolManager')
+        self.patch_urllib3 = patch('urllib3.PoolManager', autospec=True)
         self.MockUrllib3 = self.patch_urllib3.start()
         self.MockUrllib3_request = self.MockUrllib3.return_value.request.return_value
 

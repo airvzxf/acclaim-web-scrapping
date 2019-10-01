@@ -9,7 +9,11 @@ class GetAllUrls:
     """"
     Get all the badges from a specific company by page number.
     """
+    # TODO: Uppercase the constant badges per page.
     badges_per_page = 48
+    company = None
+    badges = 0
+    urls = []
 
     def __init__(self, company: str) -> None:
         """
@@ -20,8 +24,6 @@ class GetAllUrls:
         :return: None
         """
         self.company = company
-        self.badges = 0
-        self.urls = []
 
     def execute(self) -> bool:
         """

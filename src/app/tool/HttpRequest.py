@@ -9,6 +9,9 @@ class HttpRequest:
     """
     Handle the HTTP request and get a response.
     """
+    url = None
+    _response = None
+    _data_json = {}
 
     def __init__(self, url: str) -> None:
         """
@@ -19,8 +22,6 @@ class HttpRequest:
         :return: None
         """
         self.url = url
-        self._response = None
-        self._data_json = {}
 
     def request(self) -> int:
         """

@@ -9,6 +9,9 @@ class UrlGenerator:
     """"
     Generate the URL badge links from the Acclaim web site.
     """
+    start_at = 1
+    end_at = 1
+    url = None
 
     def __init__(self, company: str, start_at: int = 1, end_at: int = None) -> None:
         """

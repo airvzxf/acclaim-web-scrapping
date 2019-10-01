@@ -18,10 +18,10 @@ class GetAllUrlsTestCase(unittest.TestCase):
         """
         self.company = 'KingKong'
 
-        self.patch_url_generator = patch('app.acclaim.badges.UrlGenerator.UrlGenerator')
+        self.patch_url_generator = patch('app.acclaim.badges.UrlGenerator.UrlGenerator', autospec=True)
         self.MockUrlGenerator = self.patch_url_generator.start()
 
-        self.patch_get_information = patch('app.acclaim.badges.GetInformation.GetInformation')
+        self.patch_get_information = patch('app.acclaim.badges.GetInformation.GetInformation', autospec=True)
         self.MockGetInformation = self.patch_get_information.start()
 
     def tearDown(self) -> None:
@@ -39,7 +39,7 @@ class GetAllUrlsTestCase(unittest.TestCase):
         badges_per_page = GetAllUrls.badges_per_page
         self.assertEqual(expected_badges_per_page, badges_per_page)
 
-    def test_call_the_class_url_generator(self, ):
+    def test_call_the_class_url_generator(self):
         self.MockUrlGenerator.get_urls = ['']
 
         get_all = GetAllUrls(self.company)

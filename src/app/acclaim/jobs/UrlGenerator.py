@@ -9,16 +9,12 @@ class UrlGenerator:
     """"
     Generate the URL job links from the Acclaim web site.
     """
+    start_at = 1
+    end_at = 1
+    url = None
 
-    def __init__(self,
-                 company: str,
-                 badge: str,
-                 country: str,
-                 salary_ranges: int,
-                 start_at: int = 1,
-                 end_at: int = None,
-                 ) -> None:
-
+    def __init__(self, company: str, badge: str, country: str,
+                 salary_ranges: int, start_at: int = 1, end_at: int = None, ) -> None:
         """
         Init the class
         :type company: str

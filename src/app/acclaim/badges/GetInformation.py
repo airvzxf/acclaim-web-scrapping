@@ -9,6 +9,8 @@ class GetInformation:
     """"
     Get how many badges are for the specific company.
     """
+    _response = None
+    badges = 0
 
     def __init__(self, url: str) -> None:
         """
