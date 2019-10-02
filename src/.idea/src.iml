@@ -3,7 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
-      <excludePattern pattern="/__main__.py" />
+      <excludePattern pattern="__main__.py" />
       <excludePattern pattern=".pytest_cache" />
     </content>
     <orderEntry type="inheritedJdk" />
