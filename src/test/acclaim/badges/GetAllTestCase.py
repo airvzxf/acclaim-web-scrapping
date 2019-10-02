@@ -24,15 +24,8 @@ class GetAllUrlsTestCase(unittest.TestCase):
 
         self.patch_urllib3 = patch('urllib3.PoolManager', autospec=True)
         self.MockUrllib3 = self.patch_urllib3.start()
-        # TODO: Do I'll use this request and requested?
         self.MockUrllib3_request = self.MockUrllib3.return_value.request
         self.MockUrllib3_requested = self.MockUrllib3_request.return_value
-
-        # self.patch_re = patch('re', autospec=True)
-        # self.MockRe = self.patch_re.start()
-        # # TODO: Do I'll use this find_all and found_all?
-        # self.MockRe_find_all = self.MockRe.return_value.findall
-        # self.MockRe_found_all = self.MockRe_find_all.return_value
 
     def tearDown(self) -> None:
         """
@@ -153,7 +146,7 @@ class GetAllUrlsTestCase(unittest.TestCase):
         badges_ids = get_all.get_badges_id
         self.assertEqual(expected_badges_ids, badges_ids)
 
-    def test_get_two_valid_bades_id(self):
+    def test_get_two_valid_badges_id(self):
         base_url = r'<div class="c-grid-item c-grid-item--stack-lt-sm cr-public-organization-badge-' + \
                    r'template-grid-item" href="/org/{company}/badge/'.format(company=self.company) + \
                    r'{badge_id}">Nothing</div>'

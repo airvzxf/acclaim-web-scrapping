@@ -43,7 +43,6 @@ class GetAll:
             response = http.request('GET', url)
             try:
                 data = response.data.decode('utf-8')
-                print(data)
             except AttributeError:
                 continue
             self._badges_id += findall(self._REGULAR_EXPRESSION, data)
